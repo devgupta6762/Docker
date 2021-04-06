@@ -1,0 +1,151 @@
+#Intro
+rpm docker download
+gedit docker.repo
+yum install docker-ce
+systemctl status docker
+systemctl start docker
+systemctl enable docker
+docker ps
+docker pull centos:7(this command downloads the image)
+docker run -it --name dev centos:7
+
+ {
+   to know the software name:
+   which date
+   rpm -q -f location from(which date)
+   
+ 
+ docker commit daga mydaga:v1
+ctrl+p+q
+
+docker run -f $(docker ps -a -q) ()
+# Masquerading allows for docker ingress and egress 
+📍firewall-cmd --zone=public --add-masquerade --permanent
+# Specifically allow incoming traffic on port 80/443 (nothing new here)
+📍firewall-cmd --zone=public --add-port=80/tcp
+📍firewall-cmd --zone=public --add-port=443/tcp
+# Reload firewall to apply permanent rules
+📍firewall-cmd --reload
+# Restart docker 
+📍systemctl restart docker
+
+
+docker rm -f $(docker ps -a -q)-[Thus will delete all docker images]
+#Apache web server(Configuring Apache Web Server)
+cd /var/www/html
+cat > text.html
+My name is....
+/usr/sbin/httpd/
+netstat -tnlp (to check the port number)
+host mein jaake
+sysytemctl status httpd(isse location uthao fir vi lagao)
+/usr/sbin/httpd/(command run by systemctl/to start service,after every reboot you have to start the service)
+curl ipaddress (to check the homepage)
+back to docker os
+netstat -tnlp(no)
+{
+   systemctl start httpd(sysstemctl stop httpd)
+   /usr/sbin/httpd/(kill all httpd -to stopthe service)
+}
+netstat -tnlp(port 8080)
+kaboom !!
+In docker image(to run web server in  docker image perfectly)
+vi /root/.bashrc (dono line add karo)
+rm -rf /var/run/httpd/*(we have to remove process id file everytime )
+/usr/sbin/httpd/(to start service permanently)
+ps -aux(all the process running in bg)
+docker tag webserver:v1 vimal13/webserver:v1(change name of docker images)
+Why docker is very fast??(dikhne mei lagta hai ki hum pura os copy kar rahe hai lekin hum log kernels copy nahi krr rahe hai)
+docker logs os-name(docker container k bahar sey activity dekh skte hai/in background)
+docker exec daga date(jayega daga mein fir date command chaake vapis aa jayega) in place of attach command)
+route -n(gateway entry of ip)
+docker commit daga devji:v1(creating my own image/yahi image use krenge toh baar baar software install nahi krna padega)
+docker inspect daga(complete full container id)
+docker network ls
+IPAM is a database used by DHCP to manage all the ip's
+docker network
+docker network create --help
+docker network create --driver bridge dev1(network has been created)
+docker network inspect dev1
+docker run -dit --name dev2 --network daga:v1(inside docker)
+those systems are safest which are isolated
+koi ek container bana lo usme sb kuch install kar dalo(software)fir ussi sey image clone kar lo baad mein kabhi kaam pade toh
+ctrl d(to exit)
+free -m(to check used memory)
+when you boot your linux os the first thing,they will start all kernel which install drivers packages
+systemd agar nahi hoga os mein toh isse related command nhi chalenge(jaisey systemctl)
+docker network ls
+uname -r(to check the kernel name)
+alias dps='docker ps'
+dps(alias mein cmd daalo fir voh hee abrreviate ko command ki tarah use karo)
+if you want to make any cmd permanent in shell(vim /root/.bashrc)/last mein jaake daal do
+permanent storage(-v)
+Creating Webapp(Article/Blog)
+{
+hub.docker.com
+docker pull wordpress
+docker images|grep wordpress
+error jo aaye gooogle maaro
+wordpress->mysql->DB server
+docker run -it -e MYSQL_ROOT_PASSWORD=redhat(entrypoint)
+yum install mysql
+mysql -h 172.17.0.2 -u root -predhat
+show databases;
+}
+docker ps
+docker inspect 9a | grep IP
+
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+Docker File
+{
+WORDPRESS
+{
+SQL
+{
+To clean the environment(remove all running os)-docker rm -f $(docker ps -a -q)
+docker run -it sql:5.7(jo images banata hai voh kuch na kuch environment variable rakh sakta hai usko bhi use krnapadega launch krte waqt)
+docker run it -e MYSQL_ROOT_PASSWORD=redhat mysql:5.7
+docker inspect (os name)09adnam |grep IP
+to launch database from anyplace
+mysql -h 172.17.0.2(ip of container) -u root -predhat(password)
+exit
+create volume(storage on a local drive to save data from the lost)
+}
+docker stop 9ajijse4
+-d (services will be running in the background)
+jab bhi system crash hota hai toh data lost hoyega pura ,issliye local storage mein database store kara do
+To provide intelligence in container we need some program ,Autoscaling-OpenShift
+*********--docker compose(to built infrastructure using code manually it takes some time)[alag sey install kro(docker compose rpm)]-permissions bhi deni padegi--**********
+docker-compose version
+to create infrastructure you need to create code(for code you neeed to create file)
+mkdir /mycompose
+cd /mycompose
+vim docker-compose.yml(file name same hee rehta hai generally issliye file name folder alag banao)3:17(docker-6)
+docker compose up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
