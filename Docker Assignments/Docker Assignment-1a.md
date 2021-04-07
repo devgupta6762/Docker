@@ -4,7 +4,7 @@
     
 ##### 2.	Pull “alpine” image from docker registry and see if image is available in your local image list.
     docker pull alpine (Alpine, Linux is a security-oriented, lightweight Linux distribution  based on musl libc and busybox.)
-    docker ps (no it's Not available)
+    docker ps(yes)
 
 ##### 3.	Pull some specific version of docker “alpine” image from docker registry.
      docker pull alpine:(20210212, edge
