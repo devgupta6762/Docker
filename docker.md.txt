@@ -28,7 +28,8 @@ docker run -f $(docker ps -a -q) ()
 📍firewall-cmd --reload
 # Restart docker 
 📍systemctl restart docker
-
+alias ddel ='docker rm -f $(docker ps -a -q)'
+vim /root/.bashrc(file of linux add anything to make it permanent)
 
 docker rm -f $(docker ps -a -q)-[Thus will delete all docker images]
 #Apache web server(Configuring Apache Web Server)
