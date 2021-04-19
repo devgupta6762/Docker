@@ -28,8 +28,7 @@ docker run -f $(docker ps -a -q) ()
 📍firewall-cmd --reload
 # Restart docker 
 📍systemctl restart docker
-alias ddel ='docker rm -f $(docker ps -a -q)'
-vim /root/.bashrc(file of linux add anything to make it permanent)
+
 
 docker rm -f $(docker ps -a -q)-[Thus will delete all docker images]
 #Apache web server(Configuring Apache Web Server)
@@ -127,6 +126,58 @@ vim docker-compose.yml(file name same hee rehta hai generally issliye file name 
 docker compose up
 
 
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+DOCKER FILE-:
+
+Custom image
+ek image banalo usme sb kuch daal lo fir usko use kro jhaan jhaan krna ho
+ek centos ki image li usme jo jo softwares interpreter daalne the daal diye fir iski help sey custom image prepare krni hai
+ek naya folder banao
+mkdir ws1 
+cd ws1
+gedit Dockerfile
+ab isme 2 keywords ek docker keywords
+                     {FROM centos 
+                      RUN yum install python36 -y
+                      cmd python(open terminal)}
+fir command chalao 
+docker build -t dev1:v1 /root/ws1(pwd)
+docker os in 1 sec. with isolation(no hacks because there is no connectivity)
+build(code)
+docker images | grep dev1
+
+Another example
+1-launch centos os                                FROM
+2-install apache software                         RUN
+  yum install httpd -y
+3-copy file to /var/www/html                      COPY
+dusre terminal mein jao os k bahar
+ek dile banoa gedit index.html
+file ko copy maaro
+docker cp index.html dev1:/var/www/html/
+4- Execute a service systemctl start httpd       CMD(os launch hoga iss process k saath process terminate os bhi)
+yeh command docker mein nhi chalega toh yeh command ko normal os mein chlao fir vaha sey pata chalega ki yeh command k peeche bhi koi aur comand chal raha hai file name diya hoga gedit sey andar jao fir vaha sey command uthao
+/usr/sbin/httpd -DFOREGROUND
+ip/index.html
+image-{
+mkdir ws2
+cd ws2
+mkdir website
+inside this n number of files .html
+gedit Dockerfile
+FROM centos
+RUN yum install httpd -y
+COPY website/ /var/www/html
+CMD /usr/sbin/httpd -DFOREGROUND
+docker build -t dev2:v1 /root/ws2(we can use . instead)
+IF client want to connect to outside world then we have to do PAT
+docker run -dit -p 8089:80 --name os3 dev2:v1
+192.168.0.162(base redhat id):8089
+1:27(expose)
+cmd aur entrypoint ([""])
+}
+docker container kill $(docker ps -q)(To kill all the running containers)
+To remove all stopped containers: docker container rm $(docker container ls –aq)
 
 
 
